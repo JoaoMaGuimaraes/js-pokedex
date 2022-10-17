@@ -7,9 +7,11 @@ for (let index = 1; index <= 150; index++) {
   pokemons.push(`https://pokeapi.co/api/v2/pokemon/${index}/`);
 }
 
+// Function to transform index #1 to #001 and #10 to #010
 Number.prototype.setPokemonID = function (n,str){
     return Array(n-String(this).length+1).join(str||'0')+this;
 }
+
 let request = pokemons.map((url) => {
   return fetch(url).then((res) => res.json());
 });
